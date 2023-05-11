@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Расшифровка текста</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <h1>Расшифровка текста</h1>
+            <form method="post" action="/decrypt">
+                <textarea name="input" rows="10" cols="50"></textarea><br>
+                <button type="submit">Расшифровать</button>
+            </form>
+        </td>
+        <td>
+            <hr>
+            <h2>Результат</h2>
+            <div th:if="${result != null}">
+                <p th:text="${result}"></p>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
