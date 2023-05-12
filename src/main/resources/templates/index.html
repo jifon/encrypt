@@ -2,26 +2,28 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Расшифровка текста</title>
+    <title>First step</title>
 </head>
 <body>
-<table>
-    <tr>
-        <td>
-            <h1>Расшифровка текста</h1>
-            <form method="post" action="/decrypt">
-                <textarea name="input" rows="10" cols="50"></textarea><br>
-                <button type="submit">Расшифровать</button>
-            </form>
-        </td>
-        <td>
-            <hr>
-            <h2>Результат</h2>
-            <div th:if="${result != null}">
-                <p th:text="${result}"></p>
-            </div>
-        </td>
-    </tr>
-</table>
+<h1>First step</h1>
+<form method="post" action="/decrypt">
+    <label for="input">Enter encrypted text:</label><br>
+    <textarea name="inputText" rows="10" cols="50" id="input"></textarea><br>
+    <button type="submit">Decrypt</button>
+</form>
+<hr>
+<h2>Results</h2>
+<div>
+    <div style="float:left;width:50%;">
+        <p>Source text:</p>
+        <p th:text="${inputText}"></p>
+    </div>
+    <div style="float:left;width:50%;">
+        <p>Decrypted text:</p>
+        <p th:if="${result != null}" th:text="${result}"></p>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 </body>
 </html>
+

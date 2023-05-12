@@ -77,6 +77,25 @@ public class KyrgyzTextAnalyzerService {
         return entries;
     }
 
+    public String decryptWithReplacements(Request request, Map<Character, Character> replacementsMap) {
+        String encryptedText = request.getText();
+        StringBuilder decryptedTextBuilder = new StringBuilder();
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            char currentChar = encryptedText.charAt(i);
+            char decryptedChar;
+
+            if (replacementsMap.containsKey(currentChar)) {
+                decryptedChar = replacementsMap.get(currentChar);
+            } else {
+                decryptedChar = currentChar;
+            }
+
+            decryptedTextBuilder.append(decryptedChar);
+        }
+
+        return decryptedTextBuilder.toString();
+    }
 //    public String decrypt(Request encryptedText) throws IOException {
 //        Map<Character, Integer> frequencyMap = getFrequencyAnalysis();
 //
